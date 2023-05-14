@@ -1,6 +1,8 @@
 # League Of Legends Soul Analysis
 This is a project for DSC80 where we clean and perform exploratory data analysis, assess missingness, and conduct permutation tests. This website stands as a report of our findings.
 
+**Names:** Zoe Ludena and Johel Tutak
+
 ## Introduction
 
 Our dataset is on all of the professional League of Legends games that have taken place in 2023. The dataset contains 12 rows per game, one row per player and 2 rows of summary statistics (one for each team). Furthermore, there are over 100 columns of nearly all the data you could collect on a league of legends match. Our question is "Which dragon soul increases a team's win rate the most?". Although the data does not explicitly collect information on souls, it is Missing by Design, meaning we can collect the data from other columns, namely the columns associated with each dragon type, and columns containing how many dragons each team took.
@@ -177,7 +179,7 @@ Here is the empirical distribution of the test statistic:
 **Significance Level:** 5% AKA 0.05
 - We chose this significance level because it is the standard
 
-**p-value:** 0.1168
+**p-value:** 0.1225
 - We did 10,000 simulations
 
 **Conclusion:** We fail to reject the null hypothesis. Meaning we believe that the distributions are the same.
