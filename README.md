@@ -48,3 +48,136 @@ This is a pie chart that shows the percentage of wins for the team that got soul
 This is a bar chart that shows the percentage of wins by the specific soul type. Dragons like `"chemtechs"` or `"infernals"`, which are damage increases appear to be less helpful than `"clouds"` or `"hextechs"` which provide utility.
 
 ### Interesting Aggregates:
+This `groupby()` highlights the mean number of dragons when teams lose or win. The first row is when the team loses and the second row is when the team wins. You can see the distribution between winning or losing with a particular soul. For instance you are much more likely to lose with `"chemtechs"` than win with it and you are more likely to win with `"hextechs"` than lose with them.
+
+| result   |   infernals |   mountains |   clouds |   oceans |   chemtechs |   hextechs |
+|:---------|------------:|------------:|---------:|---------:|------------:|-----------:|
+| False    |    0.616438 |    0.732877 | 0.678082 | 0.671233 |    0.876712 |   0.424658 |
+| True     |    0.640417 |    0.670527 | 0.675738 | 0.672264 |    0.675159 |   0.665895 |
+
+## Assessment of Missingness
+
+### NMAR Analysis
+Yes, we believe that many columns in our data are Not Missing At Random (NMAR) due to the way this data is collected. Each game has 12 columns, a column for each of the team players and an additional column for each of the two teams. Many stats are missing for the player rows and not missing for the team rows, and vice versa. This makes the missingness of the rows dependent on the type of columns (and therefore many of the other columns). However, the correlation is not 1 to 1, meaning you cannot infer one column's missingness exactly from anothers, meaning it is not missing by design. Furthermore, only certain leagues tracked data on the elemental drakes, while others did not. `“clouds”`, one of the drakes, we speculate will have its missingness dependent on the `“league”` column based on this fact.
+
+Additional data we want to collect to make the missingness MAR is the elemental dragon data from all the matches played in leagues that did not record that data. This would allow us to fill out the columns missing due to the league not collecting dragon data, and make the missingness not depend on the league.
+
+### Missingness Dependency
+**Missingness of `"clouds"` does depend on `"league"`**
+We wanted to determine if `"league"` and `"clouds"` were Missing at Random or Missing Completely at Random.
+
+Here is the observed distribution when `"clouds"` was missing:
+| league   |     clouds |
+|:---------|-----------:|
+| CBLOL    | 0.0230796  |
+| CBLOLA   | 0.0238489  |
+| EBL      | 0.0142324  |
+| EL       | 0.00788553 |
+| EM       | 0.0267339  |
+| ESLOL    | 0.0138478  |
+| GL       | 0.0171174  |
+| GLL      | 0.0138478  |
+| HC       | 0.0132708  |
+| HM       | 0.0140401  |
+| LAS      | 0.00615456 |
+| LCK      | 0.0482748  |
+| LCK CL   | 0.0492365  |
+| LCO      | 0.0123091  |
+| LCS      | 0.0236566  |
+| LDL      | 0.106858   |
+| LEC      | 0.0330807  |
+| LFL      | 0.0213486  |
+| LFL2     | 0.0219256  |
+| LHE      | 0.0113475  |
+| LJL      | 0.0292341  |
+| LLA      | 0.018656   |
+| LMF      | 0.0165404  |
+| LPL      | 0.0874716  |
+| LPLOL    | 0.0134631  |
+| LVP DDH  | 0.0165404  |
+| MSI      | 0.00615456 |
+| NACL     | 0.094434   |
+| NEXO     | 0.0144247  |
+| NLC      | 0.0140401  |
+| PCS      | 0.0269262  |
+| PGN      | 0.0140401  |
+| PRM      | 0.0221179  |
+| SL       | 0.0386583  |
+| TCL      | 0.0151941  |
+| UL       | 0.0215409  |
+| VCS      | 0.0315421  |
+| VL       | 0.016925   |
+
+Here is the observed distribution when `"clouds"` was not missing:
+| league   |     clouds |
+|:---------|-----------:|
+| CBLOL    | 0.0286465  |
+| CBLOLA   | 0.0296013  |
+| EBL      | 0.0176653  |
+| EL       | 0.00978754 |
+| EM       | 0.0331821  |
+| ESLOL    | 0.0171879  |
+| GL       | 0.0212461  |
+| GLL      | 0.0171879  |
+| HC       | 0.0164717  |
+| HM       | 0.0174266  |
+| LAS      | 0.00763905 |
+| LCK      | 0.0599188  |
+| LCK CL   | 0.0611124  |
+| LCO      | 0.0152781  |
+| LCS      | 0.0293626  |
+| LEC      | 0.0410599  |
+| LFL      | 0.026498   |
+| LFL2     | 0.0272141  |
+| LHE      | 0.0140845  |
+| LJL      | 0.0362855  |
+| LLA      | 0.0231559  |
+| LMF      | 0.02053    |
+| LPLOL    | 0.0167104  |
+| LVP DDH  | 0.02053    |
+| MSI      | 0.00763905 |
+| NACL     | 0.117212   |
+| NEXO     | 0.017904   |
+| NLC      | 0.0174266  |
+| PCS      | 0.0334209  |
+| PGN      | 0.0174266  |
+| PRM      | 0.0274529  |
+| SL       | 0.0479828  |
+| TCL      | 0.0188589  |
+| UL       | 0.0267367  |
+| VCS      | 0.0391502  |
+| VL       | 0.0210074  |
+
+Our observed statistic was: 0.09716505750663537
+
+Here is the empirical distribution of the test statistic:
+<iframe src="assets/dist_league.html" width=800 height=600 frameBorder=0></iframe>
+
+**Missingness of `"clouds"` does not depend on `"url"`**
+We wanted to determine if `"url"` and `"clouds"` were Missing at Random or Missing Completely at Random.
+
+*Note*: We found that leagues that collect `"url"` data do not collect `"clouds"` data.
+
+Here is the observed distribution when `"clouds"` was missing:
+
+
+Here is the observed distribution when `"clouds"` was not missing:
+
+
+Our observed statistic was: ______
+
+Here is the empirical distribution of the test statistic:
+
+## Hypothesis Testing
+**Null Hypothesis:** The distribution of souls in games where the team with soul won is the same as the distribution of souls in games where the team with the soul lost.
+**Alternate Hypothesis:** The distribution of souls in games where the team with soul won is different than the distribution of souls in games where the team with the soul lost.
+
+**Test Statistic:** We will be using the Total Variation Distance (TVD).
+- We chose to use TVD because we are using categoricial data, more specifically whether two sample distributions came from the same distribution.
+**Significance Level:** 5% AKA 0.05
+- We chose this significance level because it is the standard
+**p-value:** 0.1168
+- We did 10,000 simulations
+**Conclusion:** We fail to reject the null hypothesis. Meaning we believe that the distributions are the same.
+
+Since we failed to reject the null hypothesis this means there is little evidence that the distribution of souls in games where the team won with soul is different from the distribution of souls in games where the team won with soul. We believe this means that souls have statistically different power levels because the proportion of wins and losses seems the same.
