@@ -156,8 +156,6 @@ Here is the empirical distribution of the test statistic:
 **Missingness of `"clouds"` does not depend on `"url"`**
 We wanted to determine if `"url"` and `"clouds"` were Missing at Random or Missing Completely at Random.
 
-*Note*: We found that leagues that collect `"url"` data do not collect `"clouds"` data.
-
 Here is the observed distribution when `"clouds"` was missing:
 
 
@@ -170,14 +168,18 @@ Here is the empirical distribution of the test statistic:
 
 ## Hypothesis Testing
 **Null Hypothesis:** The distribution of souls in games where the team with soul won is the same as the distribution of souls in games where the team with the soul lost.
+
 **Alternate Hypothesis:** The distribution of souls in games where the team with soul won is different than the distribution of souls in games where the team with the soul lost.
 
 **Test Statistic:** We will be using the Total Variation Distance (TVD).
 - We chose to use TVD because we are using categoricial data, more specifically whether two sample distributions came from the same distribution.
+
 **Significance Level:** 5% AKA 0.05
 - We chose this significance level because it is the standard
+
 **p-value:** 0.1168
 - We did 10,000 simulations
+
 **Conclusion:** We fail to reject the null hypothesis. Meaning we believe that the distributions are the same.
 
 Since we failed to reject the null hypothesis this means there is little evidence that the distribution of souls in games where the team won with soul is different from the distribution of souls in games where the team won with soul. We believe this means that souls have statistically different power levels because the proportion of wins and losses seems the same.
