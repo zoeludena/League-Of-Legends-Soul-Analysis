@@ -40,8 +40,11 @@ We first decided to only keep the relevant columns: `'result'`, `'dragons'`,  `'
 | True     |         4 |             0 |                 4 |                     0 |           0 |           1 |        1 |        0 |           0 |          2 | hextechs    |
 
 ### Univariate Analysis:
-
+<iframe src="assets/univariate.html" width=800 height=600 frameBorder=0></iframe>
+This is a pie chart that shows the percentage of wins for the team that got soul. You can notice teams are more likely to win when they have a soul.
 
 ### Bivariate Analysis:
+<iframe src="assets/bivariate.html" width=800 height=600 frameBorder=0></iframe>
+This is a bar chart that shows the percentage of wins by the specific soul type. Dragons like `"chemtechs"` or `"infernals"`, which are damage increases appear to be less helpful than `"clouds"` or `"hextechs"` which provide utility.
 
 ### Interesting Aggregates:
