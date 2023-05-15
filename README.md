@@ -1,4 +1,3 @@
-# League Of Legends Soul Analysis
 This is a project for DSC80 where we clean and perform exploratory data analysis, assess missingness, and conduct permutation tests. This website stands as a report of our findings.
 
 **Names:** Zoe Ludena and Johel Tutak
