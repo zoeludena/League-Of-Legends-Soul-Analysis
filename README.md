@@ -69,6 +69,7 @@ Additional data we want to collect to make the missingness MAR is the elemental 
 We wanted to determine if `"league"` and `"clouds"` were Missing at Random or Missing Completely at Random.
 
 Here is the observed distribution when `"clouds"` was missing:
+
 | league   |     clouds |
 |:---------|-----------:|
 | CBLOL    | 0.0230796  |
@@ -111,6 +112,7 @@ Here is the observed distribution when `"clouds"` was missing:
 | VL       | 0.016925   |
 
 Here is the observed distribution when `"clouds"` was not missing:
+
 | league   |     clouds |
 |:---------|-----------:|
 | CBLOL    | 0.0286465  |
@@ -161,6 +163,7 @@ Here is the empirical distribution of the test statistic:
 We wanted to determine if `"opp_towers"` and `"clouds"` were Missing at Random or Missing Completely at Random.
 
 Here is the observed distribution when `"clouds"` was missing:
+
 |   opp_towers |    clouds |
 |-------------:|----------:|
 |            0 | 0.0528504 |
@@ -177,6 +180,7 @@ Here is the observed distribution when `"clouds"` was missing:
 |           11 | 0.0932304 |
 
 Here is the observed distribution when `"clouds"` was not missing:
+
 |   opp_towers |    clouds |
 |-------------:|----------:|
 |            0 | 0.0541895 |
