@@ -219,3 +219,5 @@ Here is the empirical distribution of the test statistic:
 **Conclusion:** We fail to reject the null hypothesis. Meaning we believe that the distributions are the same.
 
 Since we failed to reject the null hypothesis this means there is little evidence that the distribution of souls in games where the team won with soul is different from the distribution of souls in games where the team won with soul. We believe this means that souls have statistically different power levels because the proportion of wins and losses seems the same.
+
+<iframe src="assets/hypothesis.html" width=800 height=600 frameBorder=0></iframe>
