@@ -152,21 +152,52 @@ Here is the observed distribution when `"clouds"` was not missing:
 
 Our observed statistic was: 0.09716505750663537
 
+Our p-value was: 0.0
+
 Here is the empirical distribution of the test statistic:
 <iframe src="assets/dist_league.html" width=800 height=600 frameBorder=0></iframe>
 
-**Missingness of `"clouds"` does not depend on `"url"`**
-We wanted to determine if `"url"` and `"clouds"` were Missing at Random or Missing Completely at Random.
+**Missingness of `"clouds"` does not depend on `"opp_towers"`**
+We wanted to determine if `"opp_towers"` and `"clouds"` were Missing at Random or Missing Completely at Random.
 
 Here is the observed distribution when `"clouds"` was missing:
-
+|   opp_towers |    clouds |
+|-------------:|----------:|
+|            0 | 0.0528504 |
+|            1 | 0.0938242 |
+|            2 | 0.107482  |
+|            3 | 0.112233  |
+|            4 | 0.0599762 |
+|            5 | 0.0261283 |
+|            6 | 0.0356295 |
+|            7 | 0.054038  |
+|            8 | 0.0908551 |
+|            9 | 0.133017  |
+|           10 | 0.140736  |
+|           11 | 0.0932304 |
 
 Here is the observed distribution when `"clouds"` was not missing:
+|   opp_towers |    clouds |
+|-------------:|----------:|
+|            0 | 0.0541895 |
+|            1 | 0.0896395 |
+|            2 | 0.113392  |
+|            3 | 0.104321  |
+|            4 | 0.0577704 |
+|            5 | 0.0358081 |
+|            6 | 0.025185  |
+|            7 | 0.0525185 |
+|            8 | 0.0840296 |
+|            9 | 0.145142  |
+|           10 | 0.127954  |
+|           11 | 0.11005   |
 
+Our observed statistic was: 0.045874161997630926
 
-Our observed statistic was: ______
+Our p-value was: 0.151
 
 Here is the empirical distribution of the test statistic:
+<iframe src="assets/opp_tower_url.html" width=800 height=600 frameBorder=0></iframe>
 
 ## Hypothesis Testing
 **Null Hypothesis:** The distribution of souls in games where the team with soul won is the same as the distribution of souls in games where the team with the soul lost.
