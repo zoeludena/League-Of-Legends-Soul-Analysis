@@ -221,5 +221,8 @@ Here is the empirical distribution of the test statistic:
 
 Since we failed to reject the null hypothesis this means there is little evidence that the distribution of souls in games where the team won with soul is different from the distribution of souls in games where the team won with soul. We believe this means that souls have statistically different power levels because the proportion of wins and losses seems the same.
 
-## Fairness Analysis
 <iframe src="assets/hypothesis.html" width=800 height=600 frameBorder=0></iframe>
+
+## Fairness Analysis
+
+Our group X is teams that got the dragon soul for that game, and our group Y is teams that did not. Our evaluation metric is whether our classifier’s accuracy is the same between the two groups. The null hypothesis is “Our classifier's accuracy is the same for both if a team had dragon soul or if they did not have dragon soul. Any difference was due to random chance.” The alternative hypothesis is “Our classifier's accuracy is not the same. Its accuracy for if the team had soul was greater than if the team did not have soul.” The test statistic we chose is the difference in accuracy between the two groups, with a significance level of 0.05. Our resulting P-value was 0.956, meaning we failed to reject the null hypothesis, and that any difference between the two groups can be explained by random chance. There is no evidence that the classifier's accuracy is different depending on if the team got soul or did not get soul. 
